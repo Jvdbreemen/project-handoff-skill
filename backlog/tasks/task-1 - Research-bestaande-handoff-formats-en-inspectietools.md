@@ -1,9 +1,10 @@
 ---
 id: TASK-1
 title: 'Research: bestaande handoff formats en inspectietools'
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-04-13 17:30'
+updated_date: '2026-04-13 18:59'
 labels:
   - research
   - fase1
@@ -18,6 +19,6 @@ Kort onderzoek naar bestaande patronen (README conventions, cookiecutter-templat
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Minimaal 3 bronnen genoteerd
-- [ ] #2 Beslissingsnotitie over geadopteerde patronen in docs/research.md
+- [x] #1 Minimaal 3 bronnen genoteerd
+- [x] #2 Beslissingsnotitie over geadopteerde patronen in docs/research.md
 <!-- AC:END -->

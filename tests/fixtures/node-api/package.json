@@ -1,0 +1,18 @@
+{
+  "name": "fixture-node-api",
+  "version": "0.1.0",
+  "description": "Minimal Express API fixture for handoff-skill baseline testing",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test test/"
+  },
+  "dependencies": {
+    "express": "^4.19.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

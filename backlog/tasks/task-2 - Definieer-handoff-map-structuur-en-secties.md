@@ -1,9 +1,10 @@
 ---
 id: TASK-2
 title: Definieer handoff-map structuur en secties
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-04-13 17:31'
+updated_date: '2026-04-13 19:00'
 labels:
   - spec
   - fase1

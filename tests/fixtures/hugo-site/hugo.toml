@@ -1,0 +1,6 @@
+baseURL = "https://example.org/"
+languageCode = "nl"
+title = "Fixture Hugo Site"
+
+[params]
+description = "Minimal Hugo fixture for handoff-skill baseline testing"

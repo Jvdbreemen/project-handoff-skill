@@ -1,0 +1,15 @@
+[project]
+name = "fixture-python-cli"
+version = "0.1.0"
+description = "Minimal Typer CLI fixture for handoff-skill baseline testing"
+requires-python = ">=3.11"
+dependencies = [
+    "typer>=0.12",
+    "httpx>=0.27",
+]
+
+[project.scripts]
+fixture-cli = "fixture_cli.main:app"
+
+[tool.uv]
+dev-dependencies = ["pytest>=8"]
