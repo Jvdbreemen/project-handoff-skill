@@ -4,11 +4,17 @@ Deze file is bedoeld voor AI coding agents (Claude Code, Cursor, Cline, Copilot,
 
 ## Project
 
-Fixture hugo-site for skill validation
+Regression test hugo-site
 
 - **Stack:** markdown / hugo
-- **Runtime:** onbekend
+- **Runtime:** hugo >=0.120
 - **Package manager:** -
+
+### Framework details
+
+- **Hugo site titel:** Fixture Hugo Site
+- **Base URL:** https://example.org/
+- **Config file:** `hugo.toml`
 
 ## Setup
 
@@ -17,6 +23,7 @@ Draai deze commando's in volgorde:
 ```bash
 git clone https://github.com/Jvdbreemen/project-handoff-skill.git
 cd hugo-site
+# Hugo heeft geen install step; zorg dat 'hugo' in PATH staat
 ```
 
 Als iets faalt, draai `./REPRODUCE.sh` voor de idempotente fallback.
@@ -25,10 +32,10 @@ Als iets faalt, draai `./REPRODUCE.sh` voor de idempotente fallback.
 
 ```bash
 # install
-# geen install commando gedetecteerd
+# Hugo heeft geen install step; zorg dat 'hugo' in PATH staat
 
 # build
-hugo
+hugo --minify
 
 # run
 hugo server -D

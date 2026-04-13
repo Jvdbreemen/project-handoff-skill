@@ -4,11 +4,15 @@ Deze file is bedoeld voor AI coding agents (Claude Code, Cursor, Cline, Copilot,
 
 ## Project
 
-Fixture node-api for skill validation
+Regression test node-api
 
 - **Stack:** javascript / -
 - **Runtime:** node >=20
 - **Package manager:** npm
+
+### Framework details
+
+_geen framework details gedetecteerd_
 
 ## Setup
 

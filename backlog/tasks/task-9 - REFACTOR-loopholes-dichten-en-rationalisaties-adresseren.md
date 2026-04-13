@@ -1,9 +1,10 @@
 ---
 id: TASK-9
 title: 'REFACTOR: loopholes dichten en rationalisaties adresseren'
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-04-13 17:31'
+updated_date: '2026-04-13 19:25'
 labels:
   - tdd
   - fase4

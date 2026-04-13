@@ -1,9 +1,10 @@
 ---
 id: TASK-11
 title: 'Agent-test: kan subagent project starten vanaf alleen de handoff?'
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-04-13 17:31'
+updated_date: '2026-04-13 19:25'
 labels:
   - tdd
   - fase6

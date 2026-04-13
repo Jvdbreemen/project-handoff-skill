@@ -4,11 +4,15 @@ Deze file is bedoeld voor AI coding agents (Claude Code, Cursor, Cline, Copilot,
 
 ## Project
 
-Fixture python-cli for skill validation
+Regression test python-cli
 
 - **Stack:** python / -
 - **Runtime:** python >=3.11
 - **Package manager:** pip
+
+### Framework details
+
+_geen framework details gedetecteerd_
 
 ## Setup
 

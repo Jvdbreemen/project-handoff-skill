@@ -36,6 +36,6 @@ fi
 
 # 5. Smoke test
 log "Smoke test"
-echo "geen smoke test gedefinieerd"
+echo "geen smoke test gedefinieerd, zie HANDOFF.md"
 
 log "Klaar. Zie HANDOFF.md voor volgende stappen."

@@ -1,9 +1,10 @@
 ---
 id: TASK-4
 title: 'RED: draai baseline zonder skill en documenteer gebreken'
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-04-13 17:31'
+updated_date: '2026-04-13 19:25'
 labels:
   - tdd
   - fase2

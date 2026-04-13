@@ -36,6 +36,6 @@ fi
 
 # 5. Smoke test
 log "Smoke test"
-npm run start
+npm run test
 
 log "Klaar. Zie HANDOFF.md voor volgende stappen."

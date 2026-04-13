@@ -1,11 +1,11 @@
 # python-cli
 
-Fixture python-cli for skill validation
+Regression test python-cli
 
 ## Status
 
 - **Branch:** main
-- **Laatste commit:** 2026-04-13T21:01:47+02:00
+- **Laatste commit:** 2026-04-13T21:25:54+02:00
 - **Working tree:** wijzigingen aanwezig
 - **Remote:** https://github.com/Jvdbreemen/project-handoff-skill.git
 
@@ -15,6 +15,10 @@ Fixture python-cli for skill validation
 - **Runtimes:** python >=3.11
 - **Package managers:** pip
 - **Frameworks:** -
+
+### Framework details
+
+_geen framework details gedetecteerd_
 
 ## Prerequisites
 
@@ -89,4 +93,4 @@ Draai `./REPRODUCE.sh` voor een geautomatiseerde setup op een schone machine. He
 
 ---
 
-Deze handoff is gegenereerd door de project-handoff skill op 2026-04-13 19:06 UTC.
+Deze handoff is gegenereerd door de project-handoff skill op 2026-04-13 19:44 UTC.

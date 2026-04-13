@@ -5,7 +5,7 @@
     "git": {
       "remote": "https://github.com/Jvdbreemen/project-handoff-skill.git",
       "branch": "main",
-      "last_commit": "2026-04-13T21:01:47+02:00",
+      "last_commit": "2026-04-13T21:25:54+02:00",
       "clean": false
     }
   },
@@ -15,14 +15,29 @@
     ],
     "frameworks": [
       "hugo"
-    ]
+    ],
+    "runtimes": [
+      {
+        "name": "hugo",
+        "version": ">=0.120"
+      }
+    ],
+    "hugo_config": {
+      "base_url": "https://example.org/",
+      "title": "Fixture Hugo Site",
+      "theme": null,
+      "config_file": "hugo.toml"
+    }
   },
   "scripts": {
+    "install": [
+      "# Hugo heeft geen install step; zorg dat 'hugo' in PATH staat"
+    ],
     "run": [
       "hugo server -D"
     ],
     "build": [
-      "hugo"
+      "hugo --minify"
     ]
   },
   "env_vars": [],

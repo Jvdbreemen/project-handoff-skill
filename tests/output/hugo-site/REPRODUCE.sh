@@ -13,19 +13,19 @@ fail() { printf '\033[31mERROR:\033[0m %s\n' "$*" >&2; exit 1; }
 
 # 1. Prerequisites check
 log "Prerequisites check"
-true  # geen checks nodig
+command -v hugo >/dev/null 2>&1 || fail "hugo niet gevonden"
 
 # 2. Runtime install (via mise als beschikbaar)
 if command -v mise >/dev/null 2>&1; then
     log "mise gevonden, runtime installeren"
     mise install || warn "mise install failed, controleer .tool-versions"
 else
-    warn "mise niet geinstalleerd. Zorg handmatig voor: onbekend"
+    warn "mise niet geinstalleerd. Zorg handmatig voor: hugo >=0.120"
 fi
 
 # 3. Dependencies installeren
 log "Dependencies installeren"
-# geen install commando gedetecteerd
+# Hugo heeft geen install step; zorg dat 'hugo' in PATH staat
 
 # 4. Env config
 log "Env config controleren"
@@ -36,6 +36,6 @@ fi
 
 # 5. Smoke test
 log "Smoke test"
-hugo server -D
+hugo --minify
 
 log "Klaar. Zie HANDOFF.md voor volgende stappen."

@@ -1,32 +1,39 @@
 # hugo-site
 
-Fixture hugo-site for skill validation
+Regression test hugo-site
 
 ## Status
 
 - **Branch:** main
-- **Laatste commit:** 2026-04-13T21:01:47+02:00
+- **Laatste commit:** 2026-04-13T21:25:54+02:00
 - **Working tree:** wijzigingen aanwezig
 - **Remote:** https://github.com/Jvdbreemen/project-handoff-skill.git
 
 ## Stack
 
 - **Talen:** markdown
-- **Runtimes:** onbekend
+- **Runtimes:** hugo >=0.120
 - **Package managers:** -
 - **Frameworks:** hugo
+
+### Framework details
+
+- **Hugo site titel:** Fixture Hugo Site
+- **Base URL:** https://example.org/
+- **Config file:** `hugo.toml`
 
 ## Prerequisites
 
 Zorg dat onderstaande tools op je machine staan voordat je begint:
 
-- _geen specifieke runtimes gedetecteerd, zie project bestanden_
+- hugo >=0.120
 
 ## Setup
 
 ```bash
 git clone https://github.com/Jvdbreemen/project-handoff-skill.git
 cd hugo-site
+# Hugo heeft geen install step; zorg dat 'hugo' in PATH staat
 ```
 
 ## Environment variables
@@ -41,12 +48,12 @@ Kopieer `.env.example` naar `.env` en vul de waarden in. Variabelen gemarkeerd a
 
 ### Install
 ```bash
-# geen install commando gedetecteerd
+# Hugo heeft geen install step; zorg dat 'hugo' in PATH staat
 ```
 
 ### Build
 ```bash
-hugo
+hugo --minify
 ```
 
 ### Run
@@ -86,4 +93,4 @@ Draai `./REPRODUCE.sh` voor een geautomatiseerde setup op een schone machine. He
 
 ---
 
-Deze handoff is gegenereerd door de project-handoff skill op 2026-04-13 19:06 UTC.
+Deze handoff is gegenereerd door de project-handoff skill op 2026-04-13 19:44 UTC.
