@@ -58,6 +58,24 @@ SOURCE_EXTENSIONS = {
     ".sh", ".bash", ".php", ".ex", ".exs",
 }
 
+# Path segments that mark test fixtures or generated output. Env vars, secrets,
+# and TODO scans skip files whose relative path contains any of these segments.
+# These directories may contain simulated secrets or env vars that should NOT
+# bleed into the main project inventory.
+EXCLUDED_SEGMENTS = (
+    "tests/fixtures",
+    "test/fixtures",
+    "tests/output",
+    "tests/dogfood",
+    "__fixtures__",
+    "fixtures/",
+)
+
+
+def _is_excluded_segment(rel_path: str) -> bool:
+    rel = rel_path.replace("\\", "/")
+    return any(seg in rel for seg in EXCLUDED_SEGMENTS)
+
 
 @dataclass
 class Inventory:
@@ -227,13 +245,16 @@ def scan_env_vars(root: Path, inv: Inventory) -> None:
     for path in walk_project(root):
         if path.suffix not in SOURCE_EXTENSIONS:
             continue
+        rel = str(path.relative_to(root))
+        if _is_excluded_segment(rel):
+            continue
         try:
             text = path.read_text(errors="ignore")
         except Exception:
             continue
         for pat in ENV_VAR_PATTERNS:
             for name in pat.findall(text):
-                found.setdefault(name, set()).add(str(path.relative_to(root)))
+                found.setdefault(name, set()).add(rel)
     inv.env_vars = [
         {"name": name, "required": True, "used_in": sorted(files)}
         for name, files in sorted(found.items())
@@ -243,6 +264,9 @@ def scan_env_vars(root: Path, inv: Inventory) -> None:
 def scan_secrets(root: Path, inv: Inventory) -> None:
     for path in walk_project(root):
         rel = path.relative_to(root)
+        rel_str = str(rel)
+        if _is_excluded_segment(rel_str):
+            continue
         for pat in SECRET_FILENAME_PATTERNS:
             if pat.match(path.name):
                 if path.name == ".env.example":
@@ -265,12 +289,53 @@ def count_todos(root: Path, inv: Inventory) -> None:
     for path in walk_project(root):
         if path.suffix not in SOURCE_EXTENSIONS:
             continue
+        rel = str(path.relative_to(root))
+        if _is_excluded_segment(rel):
+            continue
         try:
             text = path.read_text(errors="ignore")
         except Exception:
             continue
         count += len(todo_re.findall(text))
     inv.issues["todos"] = count
+
+
+def detect_script_fallback(root: Path, inv: Inventory) -> None:
+    """Fallback: detect pure-script repos without a package manifest.
+
+    If no stack was detected so far, check for bare Python/Bash/Node scripts
+    and register the most common language as the stack.
+    """
+    if inv.stack.get("languages"):
+        return
+    counts: dict[str, int] = {}
+    for path in walk_project(root):
+        rel = str(path.relative_to(root))
+        if _is_excluded_segment(rel):
+            continue
+        ext = path.suffix
+        if ext == ".py":
+            counts["python"] = counts.get("python", 0) + 1
+        elif ext in (".sh", ".bash"):
+            counts["shell"] = counts.get("shell", 0) + 1
+        elif ext in (".js", ".mjs", ".cjs"):
+            counts["javascript"] = counts.get("javascript", 0) + 1
+    if not counts:
+        return
+    lang = max(counts, key=counts.get)
+    inv.stack.setdefault("languages", []).append(lang)
+    if lang == "python":
+        inv.stack.setdefault("runtimes", []).append({"name": "python", "version": ">=3.10"})
+        inv.stack.setdefault("package_managers", []).append("none (bare scripts)")
+        inv.scripts.setdefault("install", []).append(
+            "# Geen package manifest; zorg dat python3 >=3.10 in PATH staat"
+        )
+    elif lang == "shell":
+        inv.stack.setdefault("runtimes", []).append({"name": "bash", "version": ">=4"})
+        inv.stack.setdefault("package_managers", []).append("none (bare scripts)")
+    elif lang == "javascript":
+        inv.stack.setdefault("runtimes", []).append({"name": "node", "version": ">=20"})
+        inv.stack.setdefault("package_managers", []).append("none (bare scripts)")
 
 
 def build_tree(root: Path, depth: int = 2, max_entries_per_dir: int = 12) -> str:
@@ -314,12 +379,13 @@ def inspect(root: Path) -> Inventory:
     detect_python(root, inv)
     detect_hugo(root, inv)
     detect_go(root, inv)
+    detect_script_fallback(root, inv)
     scan_env_vars(root, inv)
     scan_secrets(root, inv)
     count_todos(root, inv)
     file_count = sum(1 for _ in walk_project(root))
     inv.structure = {
-        "tree_depth_3": build_tree(root, depth=3),
+        "tree_depth_3": build_tree(root, depth=2),
         "file_count": file_count,
         "loc_estimate": _estimate_loc(root),
     }
@@ -332,6 +398,9 @@ def _estimate_loc(root: Path) -> int:
     total = 0
     for path in walk_project(root):
         if path.suffix not in SOURCE_EXTENSIONS:
+            continue
+        rel = str(path.relative_to(root))
+        if _is_excluded_segment(rel):
             continue
         try:
             total += sum(1 for _ in path.open(errors="ignore"))
@@ -348,7 +417,7 @@ def main() -> int:
     if not args.project.is_dir():
         print(f"not a directory: {args.project}", file=sys.stderr)
         return 2
-    inv = inspect(args.project)
+    inv = inspect(args.project.resolve())
     data = asdict(inv)
     text = json.dumps(data, indent=2, ensure_ascii=False)
     if args.out:

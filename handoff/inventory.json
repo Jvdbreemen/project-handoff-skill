@@ -1,0 +1,42 @@
+{
+  "project": {
+    "name": "project-handoff-skill",
+    "path": "/Users/jvdbreemen/Claude/projects/project-handoff-skill",
+    "git": {
+      "remote": "https://github.com/Jvdbreemen/project-handoff-skill.git",
+      "branch": "main",
+      "last_commit": "2026-04-13T21:44:32+02:00",
+      "clean": false
+    }
+  },
+  "stack": {
+    "languages": [
+      "python"
+    ],
+    "runtimes": [
+      {
+        "name": "python",
+        "version": ">=3.10"
+      }
+    ],
+    "package_managers": [
+      "none (bare scripts)"
+    ]
+  },
+  "scripts": {
+    "install": [
+      "# Geen package manifest; zorg dat python3 >=3.10 in PATH staat"
+    ]
+  },
+  "env_vars": [],
+  "dependencies": {},
+  "structure": {
+    "tree_depth_3": "project-handoff-skill/\n├── backlog/\n│   ├── archive/\n│   ├── completed/\n│   ├── decisions/\n│   ├── docs/\n│   ├── drafts/\n│   ├── milestones/\n│   ├── tasks/\n│   └── config.yml\n├── docs/\n│   ├── handoff-spec.md\n│   └── research.md\n├── handoff/\n│   ├── AGENTS.md\n│   ├── CLAUDE.md\n│   ├── HANDOFF.md\n│   ├── REPRODUCE.sh\n│   └── inventory.json\n├── scripts/\n│   ├── handoff_inspect.py\n│   └── render_handoff.py\n├── skills/\n│   └── project-handoff/\n├── templates/\n│   ├── AGENTS.md.tmpl\n│   ├── CLAUDE.md.tmpl\n│   ├── HANDOFF.md.tmpl\n│   ├── REPRODUCE.sh.tmpl\n│   └── env.example.tmpl\n├── tests/\n│   ├── dogfood/\n│   ├── fixtures/\n│   ├── output/\n│   ├── scenarios/\n│   ├── agent-test.md\n│   ├── baseline-results.md\n│   ├── dogfood.md\n│   └── refactor-notes.md\n├── LICENSE\n├── PLAN.md\n└── README.md",
+    "file_count": 79,
+    "loc_estimate": 686
+  },
+  "issues": {
+    "todos": 5,
+    "warnings": []
+  }
+}
