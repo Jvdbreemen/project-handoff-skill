@@ -1,0 +1,51 @@
+{
+  "project": {
+    "name": "jimvandenbreemen.nl",
+    "path": "/Users/jvdbreemen/Claude/projects/jimvandenbreemen.nl",
+    "git": {
+      "remote": null,
+      "branch": "master",
+      "last_commit": null,
+      "clean": false
+    }
+  },
+  "stack": {
+    "languages": [
+      "markdown"
+    ],
+    "frameworks": [
+      "hugo"
+    ],
+    "runtimes": [
+      {
+        "name": "hugo",
+        "version": ">=0.120"
+      }
+    ],
+    "package_managers": [
+      "hugo"
+    ]
+  },
+  "scripts": {
+    "install": [
+      "# Hugo heeft geen install step; zorg dat 'hugo' in PATH staat"
+    ],
+    "run": [
+      "hugo server -D"
+    ],
+    "build": [
+      "hugo"
+    ]
+  },
+  "env_vars": [],
+  "dependencies": {},
+  "structure": {
+    "tree_depth_3": "jimvandenbreemen.nl/\n├── archetypes/\n│   ├── default.md\n│   ├── foto.md\n│   ├── media.md\n│   └── tekst.md\n├── assets/\n├── content/\n│   ├── foto/\n│   │   ├── benny-sings/\n│   │   ├── chernobyl/\n│   │   └── _index.md\n│   ├── media/\n│   │   ├── geopolitiek-audio/\n│   │   └── _index.md\n│   ├── over/\n│   │   └── _index.md\n│   ├── tekst/\n│   │   ├── benny-sings-zonnehuis/\n│   │   ├── iftar-windesheim/\n│   │   ├── interview-shindar/\n│   │   ├── interview-thijs/\n│   │   ├── privacy-column/\n│   │   └── _index.md\n│   └── woordenweb/\n│       └── index.md\n├── data/\n├── design/\n│   ├── Cowork's bit/\n│   │   ├── claude-skills/\n│   │   ├── img/\n│   │   ├── thijs-assets/\n│   │   ├── versies/\n│   │   ├── CC-HANDOFF-PROMPT.md\n│   │   ├── DESIGN-HANDOFF-CC.md\n│   │   ├── HANDOFF-WOORDENWEB-PRETEXT.md\n│   │   ├── IMMERSIVE-INTERVIEW-FRAMEWORK.md\n│   │   ├── MASTER-BUNDLE-jimvandenbreemen.md\n│   │   ├── SITE-IDEAS.md\n│   │   ├── Top 8 Claude Skills for UI_UX Engineers _ Snyk.html\n│   │   ├── V10-VERBETERPLAN.md\n│   │   └── ... (32 more)\n│   ├── demo-woordenweb/\n│   │   ├── index.html\n│   │   ├── poems.json\n│   │   ├── woordenweb.css\n│   │   └── woordenweb.js\n│   ├── claude-code-prompt-hugo-theme.md\n│   ├── files.zip\n│   ├── hugo-site-architectuur.md\n│   ├── hugo-theme-briefing.md\n│   └── site-curatie-handleiding.md\n├── i18n/\n├── layouts/\n├── static/\n│   ├── data/\n│   │   └── wordweb.json\n│   ├── fonts/\n│   │   ├── Wavehaus-128Bold.woff2\n│   │   ├── Wavehaus-158ExtraBold.woff2\n│   │   ├── Wavehaus-28Thin.woff2\n│   │   ├── Wavehaus-42Light.woff2\n│   │   ├── Wavehaus-66Book.woff2\n│   │   └── Wavehaus-95SemiBold.woff2\n│   └── robots.txt\n├── themes/\n│   └── jvdb/\n│       ├── assets/\n│       ├── layouts/\n│       └── static/\n├── CC-TAKEN.md\n├── CLAUDE.md\n├── HANDOFF.md\n└── ... (2 more)",
+    "file_count": 256,
+    "loc_estimate": 1743
+  },
+  "issues": {
+    "todos": 0,
+    "warnings": []
+  }
+}

@@ -1,9 +1,10 @@
 ---
 id: TASK-12
 title: Deploy skill naar ~/.claude/skills/project-handoff/
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-04-13 17:31'
+updated_date: '2026-04-13 19:20'
 labels:
   - deploy
   - fase7

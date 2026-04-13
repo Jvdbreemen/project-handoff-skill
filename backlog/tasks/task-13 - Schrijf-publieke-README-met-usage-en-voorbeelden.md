@@ -1,9 +1,10 @@
 ---
 id: TASK-13
 title: Schrijf publieke README met usage en voorbeelden
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-04-13 17:32'
+updated_date: '2026-04-13 19:20'
 labels:
   - docs
   - fase7

@@ -48,7 +48,8 @@ ENV_VAR_PATTERNS = [
 IGNORE_DIRS = {
     ".git", "node_modules", "__pycache__", ".venv", "venv", ".mypy_cache",
     ".pytest_cache", "dist", "build", ".next", ".nuxt", "target",
-    ".idea", ".vscode", ".DS_Store", "public/hugo_stats", "resources",
+    ".idea", ".vscode", ".DS_Store", "public", "resources", "_site",
+    "vendor", ".turbo", ".cache", "coverage",
 }
 
 SOURCE_EXTENSIONS = {
@@ -179,6 +180,11 @@ def detect_hugo(root: Path, inv: Inventory) -> None:
         if (root / name).exists():
             inv.stack.setdefault("languages", []).append("markdown")
             inv.stack.setdefault("frameworks", []).append("hugo")
+            inv.stack.setdefault("runtimes", []).append({"name": "hugo", "version": ">=0.120"})
+            inv.stack.setdefault("package_managers", []).append("hugo")
+            inv.scripts.setdefault("install", []).append(
+                "# Hugo heeft geen install step; zorg dat 'hugo' in PATH staat"
+            )
             inv.scripts.setdefault("run", []).append("hugo server -D")
             inv.scripts.setdefault("build", []).append("hugo")
             return
@@ -247,22 +253,30 @@ def count_todos(root: Path, inv: Inventory) -> None:
     inv.issues["todos"] = count
 
 
-def build_tree(root: Path, depth: int = 3) -> str:
+def build_tree(root: Path, depth: int = 2, max_entries_per_dir: int = 12) -> str:
     lines = []
 
     def walk(path: Path, prefix: str, level: int) -> None:
         if level > depth:
             return
-        entries = sorted(
-            [p for p in path.iterdir() if p.name not in IGNORE_DIRS and not p.name.startswith(".")],
-            key=lambda p: (p.is_file(), p.name),
-        )
-        for i, entry in enumerate(entries[:20]):
-            connector = "└── " if i == len(entries) - 1 else "├── "
+        try:
+            entries = sorted(
+                [p for p in path.iterdir() if p.name not in IGNORE_DIRS and not p.name.startswith(".")],
+                key=lambda p: (p.is_file(), p.name),
+            )
+        except PermissionError:
+            return
+        truncated = len(entries) > max_entries_per_dir
+        shown = entries[:max_entries_per_dir]
+        for i, entry in enumerate(shown):
+            last = (i == len(shown) - 1) and not truncated
+            connector = "└── " if last else "├── "
             lines.append(f"{prefix}{connector}{entry.name}{'/' if entry.is_dir() else ''}")
             if entry.is_dir():
-                extension = "    " if i == len(entries) - 1 else "│   "
+                extension = "    " if last else "│   "
                 walk(entry, prefix + extension, level + 1)
+        if truncated:
+            lines.append(f"{prefix}└── ... ({len(entries) - max_entries_per_dir} more)")
 
     lines.append(f"{root.name}/")
     walk(root, "", 1)

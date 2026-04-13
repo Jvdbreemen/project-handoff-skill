@@ -1,9 +1,10 @@
 ---
 id: TASK-8
 title: 'GREEN: test skill op dummy-project fixtures'
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-04-13 17:31'
+updated_date: '2026-04-13 19:20'
 labels:
   - tdd
   - fase3
