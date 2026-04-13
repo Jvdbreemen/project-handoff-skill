@@ -1,0 +1,70 @@
+# Agent instructions: {{project_name}}
+
+Deze file is bedoeld voor AI coding agents (Claude Code, Cursor, Cline, Copilot, enz.). Volg de instructies hieronder om dit project op te zetten en eraan te werken.
+
+## Project
+
+{{one_line_summary}}
+
+- **Stack:** {{languages}} / {{frameworks}}
+- **Runtime:** {{runtimes}}
+- **Package manager:** {{package_managers}}
+
+## Setup
+
+Draai deze commando's in volgorde:
+
+```bash
+{{setup_commands}}
+```
+
+Als iets faalt, draai `./REPRODUCE.sh` voor de idempotente fallback.
+
+## Build / test / run
+
+```bash
+# install
+{{install_commands}}
+
+# build
+{{build_commands}}
+
+# run
+{{run_commands}}
+
+# test
+{{test_commands}}
+```
+
+## Environment variables
+
+Deze env vars zijn nodig (kopieer `.env.example` naar `.env` en vul in):
+
+{{env_vars_plain_list}}
+
+## Coding conventies
+
+{{coding_conventions}}
+
+## Wat niet te doen
+
+- Verwijder of hernoem bestanden buiten de scope van je taak
+- Doe geen framework-migraties of major dependency-upgrades zonder opdracht
+- Commit geen secrets: `.env`, keys, tokens horen niet in git
+- Bypass geen pre-commit hooks met `--no-verify`
+- Maak geen nieuwe branches zonder te vragen
+
+## Waar op te letten
+
+- TODO/FIXME markers in code: {{todo_count}} bekend
+{{warnings_plain_list}}
+
+## Directorystructuur
+
+```
+{{tree}}
+```
+
+## Volgende stap
+
+Lees eerst `HANDOFF.md` voor de mens-leesbare context. Dit AGENTS.md bestand bevat alleen de machine-actionable subset. Voor Claude Code specifiek: zie `CLAUDE.md` als die bestaat.

@@ -1,9 +1,10 @@
 ---
 id: TASK-7
 title: 'GREEN: schrijf eerste versie SKILL.md'
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-04-13 17:31'
+updated_date: '2026-04-13 19:06'
 labels:
   - skill
   - fase3

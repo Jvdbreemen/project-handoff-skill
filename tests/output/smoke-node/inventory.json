@@ -1,0 +1,76 @@
+{
+  "project": {
+    "name": "node-api",
+    "path": "/Users/jvdbreemen/Claude/projects/project-handoff-skill/tests/fixtures/node-api",
+    "git": {
+      "remote": "https://github.com/Jvdbreemen/project-handoff-skill.git",
+      "branch": "main",
+      "last_commit": "2026-04-13T21:01:47+02:00",
+      "clean": false
+    }
+  },
+  "stack": {
+    "languages": [
+      "javascript"
+    ],
+    "package_managers": [
+      "npm"
+    ],
+    "runtimes": [
+      {
+        "name": "node",
+        "version": ">=20"
+      }
+    ]
+  },
+  "scripts": {
+    "test": [
+      "npm run test"
+    ],
+    "run": [
+      "npm run start",
+      "npm run dev"
+    ]
+  },
+  "env_vars": [
+    {
+      "name": "API_KEY",
+      "required": true,
+      "used_in": [
+        "src/server.js"
+      ]
+    },
+    {
+      "name": "DATABASE_URL",
+      "required": true,
+      "used_in": [
+        "src/server.js"
+      ]
+    },
+    {
+      "name": "PORT",
+      "required": true,
+      "used_in": [
+        "src/server.js"
+      ]
+    }
+  ],
+  "dependencies": {
+    "runtime": [
+      {
+        "name": "express",
+        "version": "^4.19.0"
+      }
+    ],
+    "dev": []
+  },
+  "structure": {
+    "tree_depth_3": "node-api/\n├── src/\n│   └── server.js\n├── README.md\n└── package.json",
+    "file_count": 3,
+    "loc_estimate": 19
+  },
+  "issues": {
+    "todos": 0,
+    "warnings": []
+  }
+}

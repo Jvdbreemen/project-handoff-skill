@@ -1,10 +1,10 @@
 ---
 id: TASK-3
 title: 'RED: schrijf baseline pressure scenarios'
-status: In Progress
+status: Done
 assignee: []
 created_date: '2026-04-13 17:31'
-updated_date: '2026-04-13 19:00'
+updated_date: '2026-04-13 19:01'
 labels:
   - tdd
   - fase2

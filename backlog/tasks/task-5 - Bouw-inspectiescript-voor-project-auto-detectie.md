@@ -1,9 +1,10 @@
 ---
 id: TASK-5
 title: Bouw inspectiescript voor project-auto-detectie
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-04-13 17:31'
+updated_date: '2026-04-13 19:04'
 labels:
   - code
   - fase3

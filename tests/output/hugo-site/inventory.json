@@ -1,0 +1,39 @@
+{
+  "project": {
+    "name": "hugo-site",
+    "path": "/Users/jvdbreemen/Claude/projects/project-handoff-skill/tests/fixtures/hugo-site",
+    "git": {
+      "remote": "https://github.com/Jvdbreemen/project-handoff-skill.git",
+      "branch": "main",
+      "last_commit": "2026-04-13T21:01:47+02:00",
+      "clean": false
+    }
+  },
+  "stack": {
+    "languages": [
+      "markdown"
+    ],
+    "frameworks": [
+      "hugo"
+    ]
+  },
+  "scripts": {
+    "run": [
+      "hugo server -D"
+    ],
+    "build": [
+      "hugo"
+    ]
+  },
+  "env_vars": [],
+  "dependencies": {},
+  "structure": {
+    "tree_depth_3": "hugo-site/\n├── content/\n│   └── _index.md\n├── README.md\n└── hugo.toml",
+    "file_count": 3,
+    "loc_estimate": 0
+  },
+  "issues": {
+    "todos": 0,
+    "warnings": []
+  }
+}

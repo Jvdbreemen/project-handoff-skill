@@ -1,9 +1,10 @@
 ---
 id: TASK-6
 title: Schrijf HANDOFF.md en CLAUDE.md templates
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-04-13 17:31'
+updated_date: '2026-04-13 19:05'
 labels:
   - code
   - fase3

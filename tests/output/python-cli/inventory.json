@@ -1,0 +1,68 @@
+{
+  "project": {
+    "name": "python-cli",
+    "path": "/Users/jvdbreemen/Claude/projects/project-handoff-skill/tests/fixtures/python-cli",
+    "git": {
+      "remote": "https://github.com/Jvdbreemen/project-handoff-skill.git",
+      "branch": "main",
+      "last_commit": "2026-04-13T21:01:47+02:00",
+      "clean": false
+    }
+  },
+  "stack": {
+    "languages": [
+      "python"
+    ],
+    "package_managers": [
+      "pip"
+    ],
+    "runtimes": [
+      {
+        "name": "python",
+        "version": ">=3.11"
+      }
+    ]
+  },
+  "scripts": {
+    "install": [
+      "pip install"
+    ]
+  },
+  "env_vars": [
+    {
+      "name": "FIXTURE_API_TOKEN",
+      "required": true,
+      "used_in": [
+        "src/fixture_cli/main.py"
+      ]
+    },
+    {
+      "name": "FIXTURE_BASE_URL",
+      "required": true,
+      "used_in": [
+        "src/fixture_cli/main.py"
+      ]
+    }
+  ],
+  "dependencies": {
+    "runtime": [
+      {
+        "name": "typer",
+        "version": "*"
+      },
+      {
+        "name": "httpx",
+        "version": "*"
+      }
+    ]
+  },
+  "structure": {
+    "tree_depth_3": "python-cli/\n├── src/\n│   └── fixture_cli/\n│       └── main.py\n└── pyproject.toml",
+    "file_count": 2,
+    "loc_estimate": 21
+  },
+  "issues": {
+    "todos": 0,
+    "warnings": []
+  }
+}

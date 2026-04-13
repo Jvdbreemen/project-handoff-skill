@@ -1,0 +1,82 @@
+# {{project_name}}
+
+{{one_line_summary}}
+
+## Status
+
+- **Branch:** {{git_branch}}
+- **Laatste commit:** {{git_last_commit}}
+- **Working tree:** {{git_clean_label}}
+- **Remote:** {{git_remote}}
+
+## Stack
+
+- **Talen:** {{languages}}
+- **Runtimes:** {{runtimes}}
+- **Package managers:** {{package_managers}}
+- **Frameworks:** {{frameworks}}
+
+## Prerequisites
+
+Zorg dat onderstaande tools op je machine staan voordat je begint:
+
+{{prerequisites_list}}
+
+## Setup
+
+```bash
+{{setup_commands}}
+```
+
+## Environment variables
+
+{{env_vars_table}}
+
+Kopieer `.env.example` naar `.env` en vul de waarden in. Variabelen gemarkeerd als REQUIRED zijn nodig om het project te draaien.
+
+## Commando's
+
+### Install
+```bash
+{{install_commands}}
+```
+
+### Build
+```bash
+{{build_commands}}
+```
+
+### Run
+```bash
+{{run_commands}}
+```
+
+### Test
+```bash
+{{test_commands}}
+```
+
+## Directorystructuur
+
+```
+{{tree}}
+```
+
+Totaal: {{file_count}} bestanden, ~{{loc_estimate}} regels code.
+
+## Known issues en valkuilen
+
+- TODO/FIXME markers in de code: {{todo_count}}
+{{warnings_list}}
+
+## Secrets
+
+Deze handoff bevat GEEN echte secrets. `.env`, keys en tokens zijn uitgefilterd. Zie `.env.example` voor de lijst van variabelen die je moet instellen.
+
+## Reproduceren
+
+Draai `./REPRODUCE.sh` voor een geautomatiseerde setup op een schone machine. Het script is idempotent: opnieuw draaien is veilig.
+
+---
+
+Deze handoff is gegenereerd door de project-handoff skill op {{generated_at}}.
