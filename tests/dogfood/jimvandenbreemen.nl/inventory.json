@@ -22,9 +22,12 @@
         "version": ">=0.120"
       }
     ],
-    "package_managers": [
-      "hugo"
-    ]
+    "hugo_config": {
+      "base_url": "https://jimvandenbreemen.nl/",
+      "title": "Jim van den Breemen",
+      "theme": "jvdb",
+      "config_file": "hugo.toml"
+    }
   },
   "scripts": {
     "install": [
@@ -34,7 +37,7 @@
       "hugo server -D"
     ],
     "build": [
-      "hugo"
+      "hugo --minify"
     ]
   },
   "env_vars": [],
@@ -46,6 +49,8 @@
   },
   "issues": {
     "todos": 0,
-    "warnings": []
+    "warnings": [
+      "hugo theme 'jvdb' heeft geen README in themes/jvdb/"
+    ]
   }
 }

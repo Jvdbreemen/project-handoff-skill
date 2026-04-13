@@ -13,15 +13,21 @@ Hugo portfolio site van Jim van den Breemen
 
 - **Talen:** markdown
 - **Runtimes:** hugo >=0.120
-- **Package managers:** hugo
+- **Package managers:** -
 - **Frameworks:** hugo
+
+### Framework details
+
+- **Hugo site titel:** Jim van den Breemen
+- **Base URL:** https://jimvandenbreemen.nl/
+- **Theme:** `jvdb` (themes/jvdb/)
+- **Config file:** `hugo.toml`
 
 ## Prerequisites
 
 Zorg dat onderstaande tools op je machine staan voordat je begint:
 
 - hugo >=0.120
-- hugo
 
 ## Setup
 
@@ -46,7 +52,7 @@ Kopieer `.env.example` naar `.env` en vul de waarden in. Variabelen gemarkeerd a
 
 ### Build
 ```bash
-hugo
+hugo --minify
 ```
 
 ### Run
@@ -143,7 +149,7 @@ Totaal: 256 bestanden, ~1743 regels code.
 ## Known issues en valkuilen
 
 - TODO/FIXME markers in de code: 0
-
+- WARN: hugo theme 'jvdb' heeft geen README in themes/jvdb/
 
 ## Secrets
 
@@ -155,4 +161,4 @@ Draai `./REPRODUCE.sh` voor een geautomatiseerde setup op een schone machine. He
 
 ---
 
-Deze handoff is gegenereerd door de project-handoff skill op 2026-04-13 19:22 UTC.
+Deze handoff is gegenereerd door de project-handoff skill op 2026-04-13 19:24 UTC.

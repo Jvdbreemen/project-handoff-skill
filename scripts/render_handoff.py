@@ -79,7 +79,28 @@ def build_context(inv: dict, summary: str | None) -> dict[str, str]:
     setup_cmds_list.extend(scripts.get("install", []))
     setup_cmds = "\n".join(setup_cmds_list) or "# handmatige setup, zie HANDOFF.md"
 
-    smoke_test = run_cmds.splitlines()[0] if run_cmds and not run_cmds.startswith("#") else 'echo "geen smoke test gedefinieerd"'
+    # Smoke test: prefer build (non-blocking) over run (may block on dev server).
+    build_lines = [l for l in (scripts.get("build") or []) if not l.strip().startswith("#")]
+    test_lines = [l for l in (scripts.get("test") or []) if not l.strip().startswith("#")]
+    if build_lines:
+        smoke_test = build_lines[0]
+    elif test_lines:
+        smoke_test = test_lines[0]
+    else:
+        smoke_test = 'echo "geen smoke test gedefinieerd, zie HANDOFF.md"'
+
+    hugo_config = stack.get("hugo_config") or {}
+    framework_details_lines = []
+    if hugo_config:
+        if hugo_config.get("title"):
+            framework_details_lines.append(f"- **Hugo site titel:** {hugo_config['title']}")
+        if hugo_config.get("base_url"):
+            framework_details_lines.append(f"- **Base URL:** {hugo_config['base_url']}")
+        if hugo_config.get("theme"):
+            framework_details_lines.append(f"- **Theme:** `{hugo_config['theme']}` (themes/{hugo_config['theme']}/)")
+        if hugo_config.get("config_file"):
+            framework_details_lines.append(f"- **Config file:** `{hugo_config['config_file']}`")
+    framework_details = "\n".join(framework_details_lines) or "_geen framework details gedetecteerd_"
 
     coding_conv_lines = []
     langs = stack.get("languages", []) or []
@@ -112,6 +133,7 @@ def build_context(inv: dict, summary: str | None) -> dict[str, str]:
         "runtimes": runtimes_str,
         "package_managers": join_or(stack.get("package_managers", [])),
         "frameworks": join_or(stack.get("frameworks", [])),
+        "framework_details": framework_details,
         "prerequisites_list": prereq_list,
         "prerequisites_check": prereq_check,
         "setup_commands": setup_cmds,

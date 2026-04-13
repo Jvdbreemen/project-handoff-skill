@@ -8,7 +8,14 @@ Hugo portfolio site van Jim van den Breemen
 
 - **Stack:** markdown / hugo
 - **Runtime:** hugo >=0.120
-- **Package manager:** hugo
+- **Package manager:** -
+
+### Framework details
+
+- **Hugo site titel:** Jim van den Breemen
+- **Base URL:** https://jimvandenbreemen.nl/
+- **Theme:** `jvdb` (themes/jvdb/)
+- **Config file:** `hugo.toml`
 
 ## Setup
 
@@ -27,7 +34,7 @@ Als iets faalt, draai `./REPRODUCE.sh` voor de idempotente fallback.
 # Hugo heeft geen install step; zorg dat 'hugo' in PATH staat
 
 # build
-hugo
+hugo --minify
 
 # run
 hugo server -D
@@ -57,7 +64,7 @@ Deze env vars zijn nodig (kopieer `.env.example` naar `.env` en vul in):
 ## Waar op te letten
 
 - TODO/FIXME markers in code: 0 bekend
-- _geen warnings_
+- WARN: hugo theme 'jvdb' heeft geen README in themes/jvdb/
 
 ## Directorystructuur
 

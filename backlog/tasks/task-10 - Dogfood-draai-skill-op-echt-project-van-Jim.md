@@ -1,9 +1,10 @@
 ---
 id: TASK-10
 title: 'Dogfood: draai skill op echt project van Jim'
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-04-13 17:31'
+updated_date: '2026-04-13 19:22'
 labels:
   - tdd
   - fase5

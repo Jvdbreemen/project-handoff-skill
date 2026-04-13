@@ -36,6 +36,6 @@ fi
 
 # 5. Smoke test
 log "Smoke test"
-hugo server -D
+hugo --minify
 
 log "Klaar. Zie HANDOFF.md voor volgende stappen."

@@ -177,16 +177,36 @@ def detect_python(root: Path, inv: Inventory) -> None:
 
 def detect_hugo(root: Path, inv: Inventory) -> None:
     for name in ("hugo.toml", "hugo.yaml", "config.toml", "config.yaml"):
-        if (root / name).exists():
+        config_path = root / name
+        if config_path.exists():
             inv.stack.setdefault("languages", []).append("markdown")
             inv.stack.setdefault("frameworks", []).append("hugo")
             inv.stack.setdefault("runtimes", []).append({"name": "hugo", "version": ">=0.120"})
-            inv.stack.setdefault("package_managers", []).append("hugo")
             inv.scripts.setdefault("install", []).append(
                 "# Hugo heeft geen install step; zorg dat 'hugo' in PATH staat"
             )
             inv.scripts.setdefault("run", []).append("hugo server -D")
-            inv.scripts.setdefault("build", []).append("hugo")
+            inv.scripts.setdefault("build", []).append("hugo --minify")
+            # Parse basic config for baseURL and title
+            try:
+                text = config_path.read_text()
+                m_base = re.search(r'^\s*baseURL\s*=\s*["\']([^"\']+)["\']', text, re.MULTILINE)
+                m_title = re.search(r'^\s*title\s*=\s*["\']([^"\']+)["\']', text, re.MULTILINE)
+                m_theme = re.search(r'^\s*theme\s*=\s*["\']([^"\']+)["\']', text, re.MULTILINE)
+                inv.stack["hugo_config"] = {
+                    "base_url": m_base.group(1) if m_base else None,
+                    "title": m_title.group(1) if m_title else None,
+                    "theme": m_theme.group(1) if m_theme else None,
+                    "config_file": name,
+                }
+                if m_theme:
+                    theme_readme = root / "themes" / m_theme.group(1) / "README.md"
+                    if not theme_readme.exists():
+                        inv.issues["warnings"].append(
+                            f"hugo theme '{m_theme.group(1)}' heeft geen README in themes/{m_theme.group(1)}/"
+                        )
+            except Exception:
+                pass
             return
 
 
