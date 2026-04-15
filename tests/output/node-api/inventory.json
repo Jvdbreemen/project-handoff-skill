@@ -1,7 +1,7 @@
 {
   "project": {
     "name": "node-api",
-    "path": "/Users/jvdbreemen/Claude/projects/project-handoff-skill/tests/fixtures/node-api",
+    "path": "<repo-root>/tests/fixtures/node-api",
     "git": {
       "remote": "https://github.com/Jvdbreemen/project-handoff-skill.git",
       "branch": "main",

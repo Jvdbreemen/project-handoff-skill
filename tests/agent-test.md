@@ -2,7 +2,7 @@
 
 ## Setup
 
-Een general-purpose subagent kreeg de opdracht om de handoff-map voor `jimvandenbreemen.nl` te lezen (dogfood output) zonder toegang tot de originele projectmap. Taak: beschrijf wat het project doet, welke tools nodig zijn, welke commando's draaien, welke env vars nodig zijn, en of het project zelfstandig opgestart en gewijzigd kan worden.
+Een general-purpose subagent kreeg de opdracht om de handoff-map voor een Hugo portfolio-site te lezen (dogfood output) zonder toegang tot de originele projectmap. Taak: beschrijf wat het project doet, welke tools nodig zijn, welke commando's draaien, welke env vars nodig zijn, en of het project zelfstandig opgestart en gewijzigd kan worden.
 
 ## Prompt
 
@@ -12,7 +12,7 @@ Kernopdracht: "lees ALLEEN deze ene map, rapporteer gaps wat had in de handoff m
 
 ## Subagent antwoord (samenvatting)
 
-**Wat doet dit project:** Hugo portfolio site van Jim van den Breemen met custom theme `jvdb`.
+**Wat doet dit project:** Hugo portfolio site met custom theme.
 
 **Tools nodig:** hugo >=0.120, optioneel mise.
 

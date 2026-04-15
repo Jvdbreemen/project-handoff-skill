@@ -1,7 +1,7 @@
 {
   "project": {
     "name": "python-cli",
-    "path": "/Users/jvdbreemen/Claude/projects/project-handoff-skill/tests/fixtures/python-cli",
+    "path": "<repo-root>/tests/fixtures/python-cli",
     "git": {
       "remote": "https://github.com/Jvdbreemen/project-handoff-skill.git",
       "branch": "main",

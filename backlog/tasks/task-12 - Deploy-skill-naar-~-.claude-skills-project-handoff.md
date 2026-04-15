@@ -14,7 +14,7 @@ dependencies: []
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-Kopieer of symlink skill naar globale skills-directory zodat Jim hem kan aanroepen. Document installatie in README.
+Kopieer of symlink skill naar globale skills-directory zodat gebruikers de skill globaal kunnen aanroepen. Document installatie in README.
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria

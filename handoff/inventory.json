@@ -1,7 +1,7 @@
 {
   "project": {
     "name": "project-handoff-skill",
-    "path": "/Users/jvdbreemen/Claude/projects/project-handoff-skill",
+    "path": "<repo-root>",
     "git": {
       "remote": "https://github.com/Jvdbreemen/project-handoff-skill.git",
       "branch": "main",

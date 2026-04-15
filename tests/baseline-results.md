@@ -11,7 +11,7 @@ De bedoelde RED-fase dispatcht subagents ZONDER de skill om hun baseline-output 
 In plaats daarvan hebben we de TDD-cyclus ingekort:
 
 1. **GREEN eerst**: skill gebouwd op basis van spec uit TASK-2
-2. **Test met echte use case**: dogfood op jimvandenbreemen.nl (TASK-10)
+2. **Test met echte use case**: dogfood op een Hugo portfolio-site (TASK-10)
 3. **Agent-test op echte output**: subagent met alleen handoff-map (TASK-11)
 4. **REFACTOR op gevonden gaps**: fixes in TASK-9
 

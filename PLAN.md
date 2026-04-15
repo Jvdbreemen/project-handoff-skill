@@ -14,7 +14,7 @@ Een Claude Code skill die een projectdirectory inspecteert en een zelfstandige h
   - `.env.example` (zonder secrets) uit code-scan
   - `REPRODUCE.sh` of gelijkwaardig script voor schone-machine setup
 - Secrets-safeguard: nooit `.env`, keys, tokens, credentials meenemen. Wel flaggen waar ze nodig zijn
-- Dogfood op echt project van Jim (bijv. `jimvandenbreemen.nl` of `ideeen/Vault`)
+- Dogfood op een echt project (bijvoorbeeld een Hugo portfolio-site of een notitie-vault) naast de synthetische fixtures
 
 ### Out of scope
 - Automatische deploy of CI-configuratie

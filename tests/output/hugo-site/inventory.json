@@ -1,7 +1,7 @@
 {
   "project": {
     "name": "hugo-site",
-    "path": "/Users/jvdbreemen/Claude/projects/project-handoff-skill/tests/fixtures/hugo-site",
+    "path": "<repo-root>/tests/fixtures/hugo-site",
     "git": {
       "remote": "https://github.com/Jvdbreemen/project-handoff-skill.git",
       "branch": "main",
